@@ -1,0 +1,13 @@
+d,1234567890
+b,\
+q,'
+p,.
+e,eE
+s,+-
+f,ntvbaf
+F,F
+l,lL
+g,?"
+O,o
+h,h
+x,x

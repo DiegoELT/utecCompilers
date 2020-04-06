@@ -9,14 +9,14 @@
 #include <string>
 #include <sstream>
 
-bool isAlphanumeric(char character);
+bool isInside(const std::string & str, char c);
 
 class Alphabet
 {
     char type;
     char value; 
 public:
-    Alphabet(char value_);
+    Alphabet(char value_, std::string alphabetFile);
     char getType();
 };
 

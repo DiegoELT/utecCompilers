@@ -12,11 +12,12 @@ int main(int argc, char *argv[])
     bool mode = std::stoi(argv[2]); 
 
     Automata turing;
+    std::string alphabet = "wapoAlphabet.txt";
     turing.loadFromFile("emailAutomata.txt");
 
     for (size_t i = 0; i < email.size(); i++)
     {
-        Alphabet character(email[i]);
+        Alphabet character(email[i], alphabet);
         if(!mode)
             turing.transition(character.getType());
         else

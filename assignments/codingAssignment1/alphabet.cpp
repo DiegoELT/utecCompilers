@@ -1,26 +1,27 @@
 #include "alphabet.h"
 
-bool isAlphanumeric(char character)
+bool isInside(const std::string & str, char c)
 {
-    return (character >= 'A' && character <= 'Z') || (character >= 'a' && character <= 'z') || (character >= '0' && character <= '9') || (character == '_');
+    return str.find(c) != std::string::npos;
 }
 
-Alphabet::Alphabet(char value_)
+Alphabet::Alphabet(char value_, std::string alphabetFile)
 {
     this -> value = value_; 
+    this -> type = 'o'; // Initial type is by default "other"
     // The type is defined by the value that is entered
-    if(isAlphanumeric(this -> value))
-        type = 'w';
-    else
+    std::string line, possibleType, alphabetchars;
+    std::ifstream alphabetGeneralization(alphabetFile); 
+    while(getline(alphabetGeneralization, line))
     {
-        switch(value)
+        std::stringstream ss(line);
+        getline(ss, possibleType, ',');
+        getline(ss, alphabetchars, ',');
+        if(isInside(alphabetchars, value_))
         {
-            case '@': this -> type = 'a';
-                break;
-            case '.': this -> type = 'p';
-                break;
-            default: this -> type = 'o';
-        }
+            this -> type = possibleType[0]; 
+            break;
+        }       
     }
 }
 
