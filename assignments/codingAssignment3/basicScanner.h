@@ -1,0 +1,7 @@
+#define KEYWORD 1
+#define OPERATOR 2
+#define SPECIAL_SYMBOL 3
+#define IDENTIFIER 4
+#define INT_CONSTANT 5
+#define FLOAT_CONSTANT 6
+#define UNEXPECTED_CHAR 7
